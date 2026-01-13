@@ -15,15 +15,14 @@ body,
   height: 100%;
   width: 100%;
   @apply text-sm;
-  @apply bg-gradient-to-br from-gray-50 via-white to-gray-50;
-  @apply dark:from-gray-950 dark:via-gray-900 dark:to-gray-900;
+  @apply bg-gradient-to-br from-gray-50 via-indigo-50/30 to-gray-50;
+  @apply dark:from-gray-950 dark:via-indigo-950/20 dark:to-gray-900;
 }
 
 body {
   @apply text-gray-900 dark:text-gray-100;
 }
 
-/* TIMELINE STYLING */
 .timeline ._3_ygE {
   @apply rounded-tl-md border border-r-0 border-[#e6e4e4] dark:border-stroke-dark;
 }

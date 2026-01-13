@@ -61,7 +61,7 @@ const Timeline = ({ id, setIsModalNewTaskOpen }: Props) => {
             No tasks available for this project. Tasks need start and due dates to be displayed in the timeline.
           </p>
           <button
-            className="mt-4 flex items-center bg-blue-primary px-3 py-2 text-white hover:bg-blue-600"
+            className="mt-4 flex items-center bg-blue-primary px-3 py-2 text-white hover:bg-indigo-600"
             onClick={() => setIsModalNewTaskOpen(true)}
           >
             Add New Task
@@ -111,7 +111,7 @@ const Timeline = ({ id, setIsModalNewTaskOpen }: Props) => {
         )}
         <div className="px-4 pb-5 pt-1">
           <button
-            className="rounder flex items-center bg-blue-primary px-3 py-2 text-white hover:bg-blue-600"
+            className="rounder flex items-center bg-blue-primary px-3 py-2 text-white hover:bg-indigo-600"
             onClick={() => setIsModalNewTaskOpen(true)}
           >
             Add New Task

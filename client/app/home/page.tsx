@@ -1,3 +1,12 @@
+/**
+ * Strona główna aplikacji - Dashboard projektu
+ *
+ * Funkcjonalność:
+ * - Wyświetla listę projektów do wyboru
+ * - Pokazuje statystyki zadań (wykresy priorytetów i statusów projektów)
+ * - Wyświetla tabelę zadań dla wybranego projektu
+ * - Recharts do wizualizacji danych
+ */
 "use client";
 
 import {
@@ -26,16 +35,22 @@ import {
 } from "recharts";
 import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+// Kolory używane w wykresach kołowych
+const COLORS = ["#6366f1", "#8b5cf6", "#a855f7", "#ec4899"];
 
 const HomePage = () => {
+  // Pobieranie listy projektów z API
   const { data: projects, isLoading: isProjectLoading } = useGetProjectsQuery();
+
+  // Stan lokalny - ID wybranego projektu
   const [selectedProjectId, setSelectedProjectId] = useState<number | null>(
     null,
   );
+
+  // Pobieranie trybu ciemnego z Redux
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
-  // Ustaw pierwszy projekt jako domyślny, gdy projekty się załadują
+  // Automatyczne wybranie pierwszego projektu gdy lista się załaduje
   useEffect(() => {
     if (projects && projects.length > 0 && !selectedProjectId) {
       setSelectedProjectId(projects[0].id);
@@ -51,9 +66,16 @@ const HomePage = () => {
     { skip: !selectedProjectId },
   );
 
-  if (isProjectLoading) return <div className="p-8 text-gray-700 dark:text-gray-300">Loading...</div>;
+  if (isProjectLoading)
+    return (
+      <div className="p-8 text-gray-700 dark:text-gray-300">Loading...</div>
+    );
   if (!projects || projects.length === 0)
-    return <div className="p-8 text-gray-700 dark:text-gray-300">No projects available</div>;
+    return (
+      <div className="p-8 text-gray-700 dark:text-gray-300">
+        No projects available
+      </div>
+    );
 
   const taskCoulmns: GridColDef[] = [
     { field: "title", headerName: "Title", width: 200 },
@@ -63,15 +85,15 @@ const HomePage = () => {
   ];
   const chartColors = isDarkMode
     ? {
-        bar: "#8884d8",
-        barGrid: "#303030",
-        pieFill: "#4a90E2",
+        bar: "#6366f1",
+        barGrid: "#2d3142",
+        pieFill: "#8b5cf6",
         text: "#FFFFFF",
       }
     : {
-        bar: "#8884d8",
+        bar: "#6366f1",
         barGrid: "#E0E0E0",
-        pieFill: "#82ca9d",
+        pieFill: "#8b5cf6",
         text: "#000000",
       };
   const priorityCount =
@@ -114,7 +136,7 @@ const HomePage = () => {
           id="project-select"
           value={selectedProjectId || ""}
           onChange={(e) => setSelectedProjectId(Number(e.target.value))}
-          className="w-full max-w-md rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm shadow-sm transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-gray-700 dark:bg-gray-800/90 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-900/50"
+          className="w-full max-w-md rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm shadow-sm transition-all focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 dark:border-gray-700 dark:bg-gray-800/90 dark:text-gray-100 dark:focus:border-indigo-400 dark:focus:ring-indigo-900/50"
         >
           {projects.map((project) => (
             <option key={project.id} value={project.id}>

@@ -77,7 +77,7 @@ const ProjectModal = ({ isOpen, onClose }: Props) => {
         </div>
         <button
           type="submit"
-          className={`justift-center focus-offset-2 mt-4 flex w-full rounded-md border border-transparent bg-blue-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+          className={`justift-center focus-offset-2 mt-4 flex w-full rounded-md border border-transparent bg-blue-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 ${
             !isFormValid() || isLoading ? "cursor-not-allowed opacity-50" : ""
           }`}
           disabled={!isFormValid() || isLoading}

@@ -80,7 +80,7 @@ const TaskColumn = ({
       ref={(instance) => {
         drop(instance);
       }}
-      className={`sl:py-4 rounder-lg py-2 xl:px-2 ${isOver ? "dark:bg-netural-950 bg-blue-100" : ""}`}
+      className={`sl:py-4 rounder-lg py-2 xl:px-2 ${isOver ? "dark:bg-netural-950 bg-indigo-100" : ""}`}
     >
       <div className="mb-3 flex w-full">
         <div
@@ -153,7 +153,7 @@ const Task = ({ task }: TaskProps) => {
             : priority === "Medium"
               ? "bg-green-200 text-green-700"
               : priority === "Low"
-                ? "bg-blue-200 text-blue-700"
+                ? "bg-indigo-200 text-indigo-700"
                 : "bg-gray-200 text-gray-700"
       }`}
     >
@@ -187,7 +187,7 @@ const Task = ({ task }: TaskProps) => {
               {taskTagsSplit.map((tag) => (
                 <div
                   key={tag}
-                  className="rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                  className="rounded-full bg-indigo-100 px-2 py-1 text-xs text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300"
                 >
                   {" "}
                   {tag}
