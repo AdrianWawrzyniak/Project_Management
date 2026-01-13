@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "fileURL": "i1.jpg",
+    "fileName": "TestImage1",
+    "taskId": 1,
+    "uploadedById": 1
+  },
+  {
+    "id": 2,
+    "fileURL": "i2.jpg",
+    "fileName": "TestImage2",
+    "taskId": 2,
+    "uploadedById": 3
+  },
+  {
+    "id": 3,
+    "fileURL": "i3.jpg",
+    "fileName": "TestImage3",
+    "taskId": 3,
+    "uploadedById": 5
+  },
+  {
+    "id": 4,
+    "fileURL": "i4.jpg",
+    "fileName": "TestImage4",
+    "taskId": 4,
+    "uploadedById": 7
+  }
+]

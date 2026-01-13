@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "text": "Musimy zaktualizować ten projekt, aby uwzględnić nowe specyfikacje.",
+    "taskId": 1,
+    "userId": 2
+  },
+  {
+    "id": 2,
+    "text": "Musimy się spotkać, by przedyskutować zmiany w tym algorytmie",
+    "taskId": 2,
+    "userId": 4
+  },
+  {
+    "id": 3,
+    "text": "To rozwiązanie energetyczne wygląda obiecująco, ale wymaga więcej badań.",
+    "taskId": 3,
+    "userId": 6
+  },
+  {
+    "id": 4,
+    "text": "Przejrzyjmy przepływ pracy w rozwoju oprogramowania, aby uwzględnić metodologie zwinne.",
+    "taskId": 4,
+    "userId": 8
+  },
+  {
+    "id": 5,
+    "text": "Powinniśmy rozważyć nowsze modele AI dla lepszej dokładności.",
+    "taskId": 5,
+    "userId": 10
+  },
+  {
+    "id": 6,
+    "text": "Testowanie produktów musi być bardziej rygorystyczne.",
+    "taskId": 6,
+    "userId": 12
+  },
+  {
+    "id": 7,
+    "text": "Algorytmy optymalizacji nie są jeszcze wydajne.",
+    "taskId": 7,
+    "userId": 14
+  },
+  {
+    "id": 8,
+    "text": "Przebudowa bazy danych może negatywnie wpłynąć na obecne operacje.",
+    "taskId": 8,
+    "userId": 16
+  },
+  {
+    "id": 9,
+    "text": "Modernizacje infrastruktury muszą być wykonywane w godzinach niskiego ruchu.",
+    "taskId": 9,
+    "userId": 18
+  },
+  {
+    "id": 10,
+    "text": "Środki bezpieczeństwa muszą zostać wzmocnione, aby zapobiec naruszeniom danych.",
+    "taskId": 10,
+    "userId": 20
+  },
+  {
+    "id": 11,
+    "text": "Rozważ użycie bardziej solidnych zestawów danych treningowych dla AI.",
+    "taskId": 11,
+    "userId": 1
+  },
+  {
+    "id": 12,
+    "text": "Spotkanie dotyczące aktualizacji bezpieczeństwa serwera zaplanowane na przyszły tydzień.",
+    "taskId": 12,
+    "userId": 2
+  },
+  {
+    "id": 13,
+    "text": "Przeprojektowanie UX zostało dobrze przyjęte w początkowych testach użytkowników.",
+    "taskId": 13,
+    "userId": 3
+  },
+  {
+    "id": 14,
+    "text": "Implementacja analityki danych musi uwzględniać opóźnienia przetwarzania w czasie rzeczywistym.",
+    "taskId": 14,
+    "userId": 4
+  },
+  {
+    "id": 15,
+    "text": "Projekt szyfrowania musi być zgodny z międzynarodowymi standardami bezpieczeństwa.",
+    "taskId": 15,
+    "userId": 5
+  },
+  {
+    "id": 16,
+    "text": "Przejrzyj strategie optymalizacji magazynu w chmurze na spotkaniu Q3.",
+    "taskId": 16,
+    "userId": 6
+  },
+  {
+    "id": 17,
+    "text": "Testy zgodności sprzętowej mają obejmować nowsze modele urządzeń.",
+    "taskId": 17,
+    "userId": 7
+  },
+  {
+    "id": 18,
+    "text": "Narzędzia wizualizacji mają obsługiwać zarówno reprezentacje danych 2D, jak i 3D.",
+    "taskId": 18,
+    "userId": 8
+  },
+  {
+    "id": 19,
+    "text": "Prototypy urządzeń IoT mają przejść rozległe testy terenowe.",
+    "taskId": 19,
+    "userId": 9
+  },
+  {
+    "id": 20,
+    "text": "Modernizacja systemu legacy ma rozpocząć się od baz danych backendowych.",
+    "taskId": 20,
+    "userId": 10
+  },
+  {
+    "id": 21,
+    "text": "Rama bezpieczeństwa sieci powinna priorytetyzować ulepszenia wykrywania zagrożeń.",
+    "taskId": 21,
+    "userId": 1
+  },
+  {
+    "id": 22,
+    "text": "Strategie wdrażania aplikacji mają uwzględniać integrację Dockera.",
+    "taskId": 22,
+    "userId": 2
+  },
+  {
+    "id": 23,
+    "text": "Analiza rynku powinna obejmować krajobrazy konkurencyjnych produktów.",
+    "taskId": 23,
+    "userId": 3
+  },
+  {
+    "id": 24,
+    "text": "Mechanizmy opinii mają wykorzystywać adaptacyjne techniki zadawania pytań.",
+    "taskId": 24,
+    "userId": 4
+  },
+  {
+    "id": 25,
+    "text": "Integracja API musi zapewniać zgodność z prywatnością danych.",
+    "taskId": 25,
+    "userId": 5
+  }
+]
