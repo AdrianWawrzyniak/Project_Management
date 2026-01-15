@@ -53,6 +53,7 @@ const HomePage = () => {
   // Automatyczne wybranie pierwszego projektu gdy lista się załaduje
   useEffect(() => {
     if (projects && projects.length > 0 && !selectedProjectId) {
+      // rerenders
       setSelectedProjectId(projects[0].id);
     }
   }, [projects, selectedProjectId]);

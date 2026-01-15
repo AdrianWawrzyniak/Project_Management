@@ -11,6 +11,7 @@ import { Menu, Moon, Search, Sun } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "@/state";
 
+// do wyjebania
 type Props = {};
 
 const Navbar = () => {
