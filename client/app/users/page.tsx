@@ -10,7 +10,7 @@ import {
   GridToolbarFilterButton,
 } from "@mui/x-data-grid";
 import Image from "next/image";
-import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
+import { dataGridClassNames, dataGridSxStyles } from "@/lib/dataGridStyles";
 import Header from "../(components)/Header";
 
 const CustomToolbar = () => (
@@ -62,6 +62,7 @@ const Users = () => {
   return (
     <div className="container mx-auto flex w-full max-w-[95%] flex-col px-6 py-8 xl:max-w-[1600px] 2xl:max-w-[1800px]">
       <Header name="Users" />
+      {/* . */}
       <div style={{ height: 650, width: "100%" }}>
         <DataGrid
           rows={users || []}

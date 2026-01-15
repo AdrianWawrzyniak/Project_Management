@@ -7,6 +7,7 @@ import TaskCard from "../(components)/TaskCard";
 import ProjectCard from "../(components)/ProjectCard";
 import UserCard from "../(components)/UserCard";
 
+// do wyjebania
 type Props = {};
 
 function Search() {
@@ -42,13 +43,21 @@ function Search() {
         />
       </div>
       <div className="space-y-6">
-        {isLoading && <p className="text-gray-700 dark:text-gray-300">Loading...</p>}
-        {isError && <p className="text-red-600 dark:text-red-400">Error occurred while fetching search results.</p>}
+        {isLoading && (
+          <p className="text-gray-700 dark:text-gray-300">Loading...</p>
+        )}
+        {isError && (
+          <p className="text-red-600 dark:text-red-400">
+            Error occurred while fetching search results.
+          </p>
+        )}
         {!isLoading && !isError && searchResults && (
           <div className="space-y-8">
             {searchResults.tasks && searchResults.tasks?.length > 0 && (
               <div>
-                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">Tasks</h2>
+                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">
+                  Tasks
+                </h2>
                 <div className="space-y-3">
                   {searchResults.tasks?.map((task) => (
                     <TaskCard key={task.id} task={task} />
@@ -58,7 +67,9 @@ function Search() {
             )}
             {searchResults.projects && searchResults.projects?.length > 0 && (
               <div>
-                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">Projects</h2>
+                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">
+                  Projects
+                </h2>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {searchResults.projects?.map((project) => (
                     <ProjectCard key={project.id} project={project} />
@@ -68,7 +79,9 @@ function Search() {
             )}
             {searchResults.users && searchResults.users?.length > 0 && (
               <div>
-                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">Users</h2>
+                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">
+                  Users
+                </h2>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {searchResults.users?.map((user) => (
                     <UserCard key={user.userId} user={user} />

@@ -1,6 +1,6 @@
 /**
  * Konfiguracja Redux Store dla aplikacji
- * 
+ *
  * Ten plik odpowiada za:
  * - Konfigurację głównego store Redux
  * - Integrację z Redux Persist (zapisywanie stanu w localStorage)
@@ -74,7 +74,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 /**
  * Funkcja tworząca Redux Store
- * 
+ *
  * @returns {Store} Skonfigurowany Redux Store z middleware i persist
  */
 export const makeStore = () => {
@@ -101,12 +101,12 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 /**
  * Provider komponentu Redux Store
- * 
+ *
  * Odpowiedzialności:
  * - Tworzy i udostępnia Redux Store dla całej aplikacji
  * - Obsługuje Redux Persist (przywracanie stanu z localStorage)
  * - Konfiguruje RTK Query listeners
- * 
+ *
  * @param children - Komponenty potomne, które będą miały dostęp do store
  */
 export default function StoreProvider({
@@ -115,7 +115,7 @@ export default function StoreProvider({
   children: React.ReactNode;
 }) {
   // Używamy useRef aby store był tworzony tylko raz (singleton pattern)
-  const storeRef = useRef<AppStore>();
+  const storeRef = useRef<AppStore | null>(null);
   if (!storeRef.current) {
     storeRef.current = makeStore();
     // Konfiguracja RTK Query - automatyczne refetch przy reconnect

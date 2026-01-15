@@ -20,7 +20,7 @@ const prisma = new PrismaClient();
  * @param res - Response object z Express
  */
 export const getProjects = async (
-  req: Request,
+  _: Request,
   res: Response,
 ): Promise<void> => {
   try {

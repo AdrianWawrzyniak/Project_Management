@@ -33,7 +33,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
+import { dataGridClassNames, dataGridSxStyles } from "@/lib/dataGridStyles";
 
 // Kolory używane w wykresach kołowych
 const COLORS = ["#6366f1", "#8b5cf6", "#a855f7", "#ec4899"];

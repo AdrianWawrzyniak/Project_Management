@@ -10,30 +10,38 @@ type Props = {
 
 const ProjectModal = ({ isOpen, onClose }: Props) => {
   const [createProject, { isLoading }] = useCreateProjectMutation();
-  const [projectName, setProjectName] = useState("");
-  const [description, setDescription] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [projectData, setProjectData] = useState({
+    name: "",
+    description: "",
+    startDate: "",
+    endDate: "",
+  });
 
   const handleSubmit = async () => {
-    if (!projectName || !startDate || !endDate) return;
+    if (!projectData.name || !projectData.startDate || !projectData.endDate)
+      return;
 
-    const formattedStartDate = formatISO(new Date(startDate), {
+    const formattedStartDate = formatISO(new Date(projectData.startDate), {
       representation: "complete",
     });
-    const formattedEndDate = formatISO(new Date(endDate), {
+    const formattedEndDate = formatISO(new Date(projectData.endDate), {
       representation: "complete",
     });
     await createProject({
-      name: projectName,
-      description,
+      name: projectData.name,
+      description: projectData.description,
       startDate: formattedStartDate,
       endDate: formattedEndDate,
     });
   };
 
   const isFormValid = () => {
-    return projectName && description && startDate && endDate;
+    return (
+      projectData.name &&
+      projectData.description &&
+      projectData.startDate &&
+      projectData.endDate
+    );
   };
 
   const inputStyles =
@@ -52,27 +60,47 @@ const ProjectModal = ({ isOpen, onClose }: Props) => {
           type="text"
           className={inputStyles}
           placeholder="ProjectName"
-          value={projectName}
-          onChange={(e) => setProjectName(e.target.value)}
+          value={projectData.name}
+          onChange={(e) =>
+            setProjectData((prevState) => ({
+              ...prevState,
+              name: e.target.value,
+            }))
+          }
         />
         <textarea
           className={inputStyles}
           placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={projectData.description}
+          onChange={(e) =>
+            setProjectData((prevState) => ({
+              ...prevState,
+              description: e.target.value,
+            }))
+          }
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-2">
           <input
             type="date"
             className={inputStyles}
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
+            value={projectData.startDate}
+            onChange={(e) =>
+              setProjectData((prevState) => ({
+                ...prevState,
+                startDate: e.target.value,
+              }))
+            }
           />
           <input
             type="date"
             className={inputStyles}
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
+            value={projectData.endDate}
+            onChange={(e) =>
+              setProjectData((prevState) => ({
+                ...prevState,
+                endDate: e.target.value,
+              }))
+            }
           />
         </div>
         <button

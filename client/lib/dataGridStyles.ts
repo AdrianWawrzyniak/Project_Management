@@ -1,6 +1,6 @@
 /**
  * Narzędzia pomocnicze dla komponentów UI
- * 
+ *
  * Zawiera style i klasy dla Material-UI DataGrid
  * dostosowane do dark mode aplikacji
  */
@@ -14,10 +14,10 @@ export const dataGridClassNames =
 
 /**
  * Funkcja zwracająca style Material-UI (sx prop) dla DataGrid
- * 
+ *
  * Style są dynamiczne i zależą od trybu ciemnego/jasnego
  * Material-UI używa sx prop do inline styles z obsługą dark mode
- * 
+ *
  * @param isDarkMode - czy aplikacja jest w trybie ciemnym
  * @returns obiekt ze stylami dla różnych części DataGrid
  */

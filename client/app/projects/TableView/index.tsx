@@ -1,6 +1,6 @@
 import Header from "@/app/(components)/Header";
 import { useAppSelector } from "@/app/redux";
-import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
+import { dataGridClassNames, dataGridSxStyles } from "@/lib/dataGridStyles";
 import { useGetTasksQuery } from "@/state/api";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import React from "react";
