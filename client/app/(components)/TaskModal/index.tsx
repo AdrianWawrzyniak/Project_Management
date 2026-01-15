@@ -11,41 +11,45 @@ type Props = {
 
 const TaskModal = ({ isOpen, onClose, id }: Props) => {
   const [createTask, { isLoading }] = useCreateTaskMutation();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [status, setStatus] = useState<Status>(Status.ToDo);
-  const [priority, setPriority] = useState<Priority>(Priority.Backlog);
-  const [tags, setTags] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [dueDate, setDueDate] = useState("");
-  const [authorUserId, setAuthorUserId] = useState("");
-  const [assignedUserId, setAssignedUserId] = useState("");
-  const [projectId, setProjectId] = useState("");
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    status: Status.ToDo,
+    priority: Priority.Backlog,
+    tags: "",
+    startDate: "",
+    dueDate: "",
+    authorUserId: "",
+    assignedUserId: "",
+    projectId: "",
+  });
 
   const handleSubmit = async () => {
-    if (!title || !authorUserId) return;
+    if (!formData.title || !formData.authorUserId) return;
 
-    const formattedStartDate = startDate
-      ? formatISO(new Date(startDate), {
+    const formattedStartDate = formData.startDate
+      ? formatISO(new Date(formData.startDate), {
           representation: "complete",
         })
       : undefined;
-    const formattedDueDate = dueDate
-      ? formatISO(new Date(dueDate), {
+    const formattedDueDate = formData.dueDate
+      ? formatISO(new Date(formData.dueDate), {
           representation: "complete",
         })
       : undefined;
 
     const taskData = {
-      title,
-      description: description || undefined,
-      status: status || Status.ToDo,
-      priority: priority || Priority.Backlog,
-      tags: tags || undefined,
+      title: formData.title,
+      description: formData.description || undefined,
+      status: formData.status || Status.ToDo,
+      priority: formData.priority || Priority.Backlog,
+      tags: formData.tags || undefined,
       startDate: formattedStartDate,
       dueDate: formattedDueDate,
-      authorUserId: parseInt(authorUserId),
-      assignedUserId: assignedUserId ? parseInt(assignedUserId) : undefined,
+      authorUserId: parseInt(formData.authorUserId),
+      assignedUserId: formData.assignedUserId
+        ? parseInt(formData.assignedUserId)
+        : undefined,
       projectId: Number(id),
     };
 
@@ -54,7 +58,7 @@ const TaskModal = ({ isOpen, onClose, id }: Props) => {
   };
 
   const isFormValid = () => {
-    return title && authorUserId;
+    return formData.title && formData.authorUserId;
   };
 
   const selectStyles =
@@ -76,23 +80,27 @@ const TaskModal = ({ isOpen, onClose, id }: Props) => {
           type="text"
           className={inputStyles}
           placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={formData.title}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, title: e.target.value }))
+          }
         />
         <textarea
           className={inputStyles}
           placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={formData.description}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, description: e.target.value }))
+          }
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-2">
           <select
             className={selectStyles}
-            value={status}
+            value={formData.status}
             onChange={(e) => {
               const value = e.target.value as Status;
               if (value) {
-                setStatus(value);
+                setFormData((prev) => ({ ...prev, status: value }));
               }
             }}
           >
@@ -103,11 +111,11 @@ const TaskModal = ({ isOpen, onClose, id }: Props) => {
           </select>
           <select
             className={selectStyles}
-            value={priority}
+            value={formData.priority}
             onChange={(e) => {
               const value = e.target.value as Priority;
               if (value) {
-                setPriority(value);
+                setFormData((prev) => ({ ...prev, priority: value }));
               }
             }}
           >
@@ -122,36 +130,47 @@ const TaskModal = ({ isOpen, onClose, id }: Props) => {
           type="text"
           className={inputStyles}
           placeholder="Tags (comma separated)"
-          value={tags}
-          onChange={(e) => setTags(e.target.value)}
+          value={formData.tags}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, tags: e.target.value }))
+          }
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-2">
           <input
             type="date"
             className={inputStyles}
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
+            value={formData.startDate}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, startDate: e.target.value }))
+            }
           />
           <input
             type="date"
             className={inputStyles}
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
+            value={formData.dueDate}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, dueDate: e.target.value }))
+            }
           />
         </div>
+        {/* input component */}
         <input
           type="text"
           className={inputStyles}
           placeholder="Author User ID"
-          value={authorUserId}
-          onChange={(e) => setAuthorUserId(e.target.value)}
+          value={formData.authorUserId}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, authorUserId: e.target.value }))
+          }
         />
         <input
           type="text"
           className={inputStyles}
           placeholder="Assigned User ID"
-          value={assignedUserId}
-          onChange={(e) => setAssignedUserId(e.target.value)}
+          value={formData.assignedUserId}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, assignedUserId: e.target.value }))
+          }
         />
         <button
           type="submit"

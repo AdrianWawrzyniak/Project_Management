@@ -13,11 +13,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import projectRoutes from "./routes/projectRoutes";
-import taskRoutes from "./routes/taskRoutes";
-import searchRoutes from "./routes/searchRoutes"
-import userRoutes from "./routes/userRoutes"
-import teamRoutes from "./routes/teamRoutes"
+import { projectRoutes, searchRoutes, taskRoutes, teamRoutes, userRoutes } from "./routes";
 
 // Ładowanie zmiennych środowiskowych z pliku .env
 dotenv.config();
@@ -33,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false })); // Parsowanie URL-encoded
 app.use(cors()); // Włączanie CORS dla wszystkich originów
 
 // Route główny - endpoint testowy
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
   res.send("This is home route");
 });
 

@@ -1,6 +1,6 @@
 /**
  * Sidebar - boczny panel nawigacyjny aplikacji
- * 
+ *
  * Odpowiedzialności:
  * - Wyświetlanie głównej nawigacji aplikacji (Home, Timeline, Search, Users, Teams)
  * - Zarządzanie widocznością listy projektów
@@ -10,6 +10,7 @@
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
 import { useGetProjectsQuery } from "@/state/api";
+// nieużywane importy
 import {
   AlertCircle,
   AlertOctagon,
@@ -39,11 +40,12 @@ import React, { useState } from "react";
 const Sidebar = () => {
   // Stan lokalny - kontroluje widoczność sekcji projektów
   const [showProjects, setShowProjects] = useState(true);
+  // nieużywany stan
   const [showPriority, setShowPriority] = useState(true);
 
   // Pobieranie listy projektów z API za pomocą RTK Query
   const { data: projects } = useGetProjectsQuery();
-  
+
   // Redux hooks - do zarządzania globalnym stanem aplikacji
   const dispatch = useAppDispatch();
   const isSidebarCollapsed = useAppSelector(
@@ -97,7 +99,7 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Główna nawigacja - linki do różnych sekcji aplikacji */}
         <nav className="z-10 w-full px-2 py-3">
           <SidebarLink icon={Grid3x3} label="Home" href="/" />
@@ -122,7 +124,7 @@ const Sidebar = () => {
             )}
           </button>
         </div>
-        
+
         {/* Lista projektów - renderowana tylko gdy sekcja jest rozwinięta */}
         {showProjects &&
           projects?.map((project) => (
@@ -149,7 +151,7 @@ interface SidebarLinkProps {
 
 /**
  * Komponent SidebarLink - pojedynczy link w nawigacji
- * 
+ *
  * Funkcjonalność:
  * - Wyświetla ikonę i tekst
  * - Podświetla się gdy jest aktywny (na podstawie aktualnej ścieżki)

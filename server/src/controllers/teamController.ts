@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export const getTeams = async (
-  req: Request,
+  _: Request,
   res: Response,
 ): Promise<void> => {
   try {

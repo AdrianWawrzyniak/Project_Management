@@ -12,9 +12,18 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
+const TABS = {
+  BOARD: "Board",
+  LIST: "List",
+  TIMELINE: "Timeline",
+  TABLE: "Table",
+};
+
+type TabType = (typeof TABS)[keyof typeof TABS];
+
 const Project = ({ params }: Props) => {
   const { id } = use(params);
-  const [activeTab, setActiveTab] = useState("Board");
+  const [activeTab, setActiveTab] = useState<TabType>(TABS.BOARD);
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
 
   return (
@@ -26,16 +35,16 @@ const Project = ({ params }: Props) => {
       />
       <ProjectHeader activeTab={activeTab} setActiveTab={setActiveTab} />
       <div className="mx-auto max-w-[95%] px-6 pb-8 xl:max-w-[1600px] 2xl:max-w-[1800px]">
-        {activeTab === "Board" && (
+        {activeTab === TABS.BOARD && (
           <Board id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
         )}
-        {activeTab === "List" && (
+        {activeTab === TABS.LIST && (
           <List id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
         )}
-        {activeTab === "Timeline" && (
+        {activeTab === TABS.TIMELINE && (
           <Timeline id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
         )}
-        {activeTab === "Table" && (
+        {activeTab === TABS.TABLE && (
           <Table id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
         )}
       </div>

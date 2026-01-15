@@ -1,6 +1,6 @@
 /**
  * RTK Query API - centralne zarządzanie zapytaniami do backendu
- * 
+ *
  * Ten plik definiuje:
  * - Wszystkie endpointy API (GET, POST, PATCH)
  * - Typy TypeScript dla danych (Project, Task, User, Team)
@@ -107,7 +107,7 @@ export interface Team {
 
 /**
  * Główna konfiguracja RTK Query API
- * 
+ *
  * RTK Query automatycznie:
  * - Cache'uje wyniki zapytań
  * - Inwaliduje cache gdy dane się zmieniają
@@ -118,7 +118,7 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
   reducerPath: "api", // Ścieżka w Redux store gdzie dane są przechowywane
   tagTypes: ["Projects", "Tasks", "Users", "Teams"], // Tagi do zarządzania cache
-  
+
   endpoints: (build) => ({
     /**
      * Endpoint GET - pobiera listę wszystkich projektów
@@ -128,7 +128,7 @@ export const api = createApi({
       query: () => "projects",
       providesTags: ["Projects"],
     }),
-    
+
     /**
      * Endpoint POST - tworzy nowy projekt
      * invalidatesTags - unieważnia cache "Projects" po utworzeniu, wymuszając refetch
@@ -141,7 +141,7 @@ export const api = createApi({
       }),
       invalidatesTags: ["Projects"],
     }),
-    
+
     /**
      * Endpoint GET - pobiera zadania dla konkretnego projektu
      * Dynamiczne tagi - każdy task ma swój tag, co pozwala na precyzyjną invalidation
@@ -153,7 +153,7 @@ export const api = createApi({
           ? result.map(({ id }) => ({ type: "Tasks" as const, id }))
           : [{ type: "Tasks" as const }],
     }),
-    
+
     /**
      * Endpoint POST - tworzy nowe zadanie
      */
@@ -165,7 +165,7 @@ export const api = createApi({
       }),
       invalidatesTags: ["Tasks"],
     }),
-    
+
     /**
      * Endpoint PATCH - aktualizuje status zadania
      * Invaliduje tylko konkretny task (po ID), nie wszystkie
@@ -180,7 +180,7 @@ export const api = createApi({
         { type: "Tasks", id: taskId },
       ],
     }),
-    
+
     /**
      * Endpoint GET - pobiera listę wszystkich użytkowników
      */
@@ -188,7 +188,7 @@ export const api = createApi({
       query: () => "users",
       providesTags: ["Users"],
     }),
-    
+
     /**
      * Endpoint GET - pobiera listę wszystkich zespołów
      */
@@ -196,7 +196,7 @@ export const api = createApi({
       query: () => "teams",
       providesTags: ["Teams"],
     }),
-    
+
     /**
      * Endpoint GET - wyszukiwanie w zadaniach, projektach i użytkownikach
      */
@@ -208,11 +208,11 @@ export const api = createApi({
 
 /**
  * Eksport wygenerowanych hooków React
- * 
+ *
  * RTK Query automatycznie generuje hooki dla każdego endpointa:
  * - use[Endpoint]Query - dla zapytań GET (zwraca { data, isLoading, error })
  * - use[Endpoint]Mutation - dla mutacji POST/PATCH (zwraca [mutate, { isLoading, error }])
- * 
+ *
  * Przykład użycia:
  * const { data: projects, isLoading } = useGetProjectsQuery();
  * const [createProject, { isLoading: isCreating }] = useCreateProjectMutation();

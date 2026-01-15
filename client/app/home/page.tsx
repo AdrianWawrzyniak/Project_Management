@@ -33,7 +33,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
+import { dataGridClassNames, dataGridSxStyles } from "@/lib/dataGridStyles";
 
 // Kolory używane w wykresach kołowych
 const COLORS = ["#6366f1", "#8b5cf6", "#a855f7", "#ec4899"];
@@ -53,6 +53,7 @@ const HomePage = () => {
   // Automatyczne wybranie pierwszego projektu gdy lista się załaduje
   useEffect(() => {
     if (projects && projects.length > 0 && !selectedProjectId) {
+      // rerenders
       setSelectedProjectId(projects[0].id);
     }
   }, [projects, selectedProjectId]);

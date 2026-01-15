@@ -10,7 +10,7 @@ import {
   GridToolbarExport,
   GridToolbarFilterButton,
 } from "@mui/x-data-grid";
-import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
+import { dataGridClassNames, dataGridSxStyles } from "@/lib/dataGridStyles";
 
 const CustomToolbar = () => (
   <GridToolbarContainer className="toolbar flex gap-2">
@@ -34,8 +34,16 @@ const Teams = () => {
   const { data: teams, isLoading, isError } = useGetTeamsQuery();
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
-  if (isLoading) return <div className="p-8 text-gray-700 dark:text-gray-300">Loading...</div>;
-  if (isError || !teams) return <div className="p-8 text-red-600 dark:text-red-400">Error fetching teams</div>;
+  if (isLoading)
+    return (
+      <div className="p-8 text-gray-700 dark:text-gray-300">Loading...</div>
+    );
+  if (isError || !teams)
+    return (
+      <div className="p-8 text-red-600 dark:text-red-400">
+        Error fetching teams
+      </div>
+    );
 
   return (
     <div className="container mx-auto flex w-full max-w-[95%] flex-col px-6 py-8 xl:max-w-[1600px] 2xl:max-w-[1800px]">
