@@ -19,9 +19,11 @@ const TABS = {
   TABLE: "Table",
 };
 
+type TabType = (typeof TABS)[keyof typeof TABS];
+
 const Project = ({ params }: Props) => {
   const { id } = use(params);
-  const [activeTab, setActiveTab] = useState(TABS.BOARD);
+  const [activeTab, setActiveTab] = useState<TabType>(TABS.BOARD);
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
 
   return (
